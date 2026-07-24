@@ -1,8 +1,8 @@
 name: SpringBoot CI
 on:
   push:
-    branchaes:
-      -main
+    branches:
+      - main
 
 jobs:
   build:
@@ -20,5 +20,8 @@ jobs:
 
       - name: Build Application
         uses: ./mvnw clean package
+
+      - name: Build Docker Image
+        run: docker build -t ci-cd .
 
 
